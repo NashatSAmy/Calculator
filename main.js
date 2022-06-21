@@ -21,7 +21,7 @@ function subtract(x, y) {
 // Function that divide 2 numbers.
 function divide(x, y) {
   if (y == 0) {
-    return "ERROR!! DO NOT USE 0!!"
+    return "ERROR!! DO NOT USE 0!!";
   }
   const result = x / y;
   return result;
@@ -48,10 +48,13 @@ function power(x, y) {
 // Function that turn the number into a negative one.
 function makeNegative() {
   if (currentInput.innerText.includes("-")) {
-    currentInput.innerText = currentInput.innerText.slice(1, currentInput.innerText.length);
+    currentInput.innerText = currentInput.innerText.slice(
+      1,
+      currentInput.innerText.length
+    );
     return;
   }
-  currentInput.innerText = "-"+currentInput.innerText;
+  currentInput.innerText = "-" + currentInput.innerText;
 }
 
 // Function that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
@@ -103,7 +106,7 @@ function populateScreen(e) {
     return;
   } else if (e.target.getAttribute("name") == "num") {
     if (previousInput.innerText == "‏‏‎ ‎") {
-      currentInput.innerText  = "";
+      currentInput.innerText = "";
       previousInput.innerText = "";
     }
     currentInput.innerText = currentInput.innerText + e.target.innerText;
@@ -120,10 +123,109 @@ function clearAll() {
 
 // Function that delete last entered number.
 function deleting() {
-  currentInput.innerText = currentInput.innerText.slice(0, currentInput.innerText.length - 1);
+  currentInput.innerText = currentInput.innerText.slice(
+    0,
+    currentInput.innerText.length - 1
+  );
 }
 
 numbers.forEach((num) => num.addEventListener("click", populateScreen));
 clear.addEventListener("click", clearAll);
 del.addEventListener("click", deleting);
 negative.addEventListener("click", makeNegative);
+
+// KEYBOARD support.
+function keyPressed(e) {
+  switch (e.key) {
+    case "0":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "1":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "2":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "3":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "4":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "5":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "6":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "7":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "8":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "9":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "+":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "-":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "/":
+      numbers.forEach((button) =>
+        button.innerText == "÷" ? button.click() : ""
+      );
+      break;
+    case "*":
+      numbers.forEach((button) =>
+        button.innerText == "×" ? button.click() : ""
+      );
+      break;
+    case "%":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+      break;
+    case "Enter":
+      numbers.forEach((button) =>
+        button.innerText == "=" ? button.click() : ""
+      );
+    case "^":
+      numbers.forEach((button) =>
+        button.innerText == "xⁿ" ? button.click() : ""
+      );
+    case ".":
+      numbers.forEach((button) =>
+        button.innerText == e.key ? button.click() : ""
+      );
+  }
+}
+
+window.addEventListener("keypress", keyPressed);
+window.addEventListener("keydown", (e) => e.key == "Backspace" ? del.click() : "");
